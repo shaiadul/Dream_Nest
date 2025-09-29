@@ -16,7 +16,7 @@ const LoginPage = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch ("http://localhost:3009/auth/login", {
+      const response = await fetch ("https://dream-nest-server-hftc.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
