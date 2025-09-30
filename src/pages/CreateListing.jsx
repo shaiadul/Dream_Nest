@@ -128,7 +128,7 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch("https://dream-nest-server-hftc.onrender.com/properties/create", {
+      const response = await fetch("http://localhost:3009/properties/create", {
         method: "POST",
         body: listingForm,
       });

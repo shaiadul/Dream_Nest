@@ -17,7 +17,7 @@ const ReservationList = () => {
   const getReservationList = async () => {
     try {
       const response = await fetch(
-        `https://dream-nest-server-hftc.onrender.com/users/${userId}/reservations`,
+        `http://localhost:3009/users/${userId}/reservations`,
         {
           method: "GET",
         }

@@ -39,13 +39,13 @@ const RegisterPage = () => {
         register_form.append(key, formData[key])
       }
 
-      const response = await fetch("https://dream-nest-server-hftc.onrender.com/auth/register", {
+      const response = await fetch("http://localhost:3009/auth/register", {
         method: "POST",
         body: register_form
       })
 
       if (response.ok) {
-        navigate("/login")
+        navigate("/verify")
       }
     } catch (err) {
       console.log("Registration failed", err.message)

@@ -4,9 +4,9 @@ import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-const LoginPage = () => {
+const VerifyPage = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [otp, setOtp] = useState("");
 
   const dispatch = useDispatch()
 
@@ -16,12 +16,12 @@ const LoginPage = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch ("http://localhost:3009/auth/login", {
+      const response = await fetch ("http://localhost:3009/auth/verify-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, otp })
       })
 
       /* Get data after fetching */
@@ -37,7 +37,7 @@ const LoginPage = () => {
             token: loggedIn.token
           })
         )
-        navigate("/")
+        navigate("/login")
       }
 
     } catch (err) {
@@ -57,20 +57,19 @@ const LoginPage = () => {
             required
           />
           <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            type="text"
+            placeholder="OTP code"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
             required
           />
-          <button type="submit">LOG IN</button>
+          <button type="submit">Submit</button>
         </form>
-        <a href="/register">Don't have an account? Sign In Here</a>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default VerifyPage;
 
 

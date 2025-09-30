@@ -18,8 +18,8 @@ const Listings = () => {
     try {
       const response = await fetch(
         selectedCategory !== "All"
-          ? `https://dream-nest-server-hftc.onrender.com/properties?category=${selectedCategory}`
-          : "https://dream-nest-server-hftc.onrender.com/properties",
+          ? `http://localhost:3009/properties?category=${selectedCategory}`
+          : "http://localhost:3009/properties",
         {
           method: "GET",
         }
